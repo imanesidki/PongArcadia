@@ -177,20 +177,10 @@ AUTH_USER_MODEL = "authentication.User"
 CORS_ALLOW_ALL_ORIGINS = True # DEV ONLY
 
 CORS_ALLOW_CREDENTIALS = True
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "https://api.intra.42.fr",
-# ]
+
 CORS_ALLOWED_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
 CORS_EXPOSE_HEADERS = ["Content-Type", "X-CSRFToken"]
-CSRF_TRUSTED_ORIGINS = [
-    os.environ["FRONTEND_URL"],
-    "https://localhost",
-    "http://localhost:3000",
-    "https://localhost:3000",
-    "https://localhost",
-    "https://api.intra.42.fr",
-]
+CSRF_TRUSTED_ORIGINS = ['*']
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
@@ -220,21 +210,21 @@ SIMPLE_JWT = {
 }
 
 # Channel layers configuration
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels.layers.InMemoryChannelLayer'
-#     }
-# }
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 # channel layers
-CHANNEL_LAYERS = {
-    "default" : {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("redis", 6379)],
-        },
-    },
-}
+# CHANNEL_LAYERS = {
+#     "default" : {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("redis", 6379)],
+#         },
+#     },
+# }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
