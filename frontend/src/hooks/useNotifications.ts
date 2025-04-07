@@ -42,8 +42,7 @@ export const useNotifications = () => {
     // Fetch existing notifications
     fetchNotifications();
 
-    // Create WebSocket connection
-    const ws = new WebSocket(`${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.hostname}/ws/notifications/`);
+    const ws = new WebSocket(`${process.env.NEXT_PUBLIC_WS_URL}/ws/notifications/`);
     
     // Set up event listeners
     ws.onopen = () => {
