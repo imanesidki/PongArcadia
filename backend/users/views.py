@@ -97,41 +97,31 @@ def upload_image(request):
 
     API_ENDPOINT = "https://freeimage.host/api/1/upload"
 
-    with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-        try:
-            for chunk in image.chunks():
-                temp_file.write(chunk)
-            temp_file.flush()
+    try:
+        image_data = base64.b64encode(image.read()).decode("utf-8")
 
-            with open(temp_file.name, "rb") as f:
-                image_data = base64.b64encode(f.read()).decode("utf-8")
+        payload = {
+            "key": API_KEY,
+            "action": "upload",
+            "source": image_data,
+            "format": "json"
+        }
 
-            payload = {
-                "key": API_KEY,
-                "action": "upload",
-                "source": image_data,
-                "format": "json"
-            }
+        response = requests.post(API_ENDPOINT, data=payload)
+        response.raise_for_status()
+        image_url = response.json()["image"]["image"]["url"]
+        return Response({"url": image_url}, status=status.HTTP_201_CREATED)
 
-            response = requests.post(API_ENDPOINT, data=payload)
-            response.raise_for_status()
-            image_url = response.json()["image"]["image"]["url"]
-            return Response({"url": image_url}, status=status.HTTP_201_CREATED)
-
-        except requests.exceptions.RequestException as e:
-            return Response(
-                {"message": "Error uploading image to external service" + str(e)},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
-        except Exception as e:
-            return Response(
-                {"message": "Error processing image" + str(e)},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
-        finally:
-            # Clean up the temporary file
-            if os.path.exists(temp_file.name):
-                os.unlink(temp_file.name)
+    except requests.exceptions.RequestException as e:
+        return Response(
+            {"message": "Error uploading image to external service: " + str(e)},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+    except Exception as e:
+        return Response(
+            {"message": "Error processing image: " + str(e)},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
 
 
 @permission_classes([IsAuthenticated])
