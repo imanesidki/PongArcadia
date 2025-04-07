@@ -120,12 +120,12 @@ def upload_image(request):
 
         except requests.exceptions.RequestException as e:
             return Response(
-                {"message": "Error uploading image to external service"},
+                {"message": "Error uploading image to external service" + str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
         except Exception as e:
             return Response(
-                {"message": "Error processing image"},
+                {"message": "Error processing image" + str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
         finally:
