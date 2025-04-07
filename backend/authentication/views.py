@@ -75,8 +75,8 @@ class login_view(APIView):
             cookie_settings = {
                 "httponly": True,
                 "secure": True,
-                "samesite": "None",  #'None' if using HTTPS
-                "domain": None,  # This will use the current domain
+                "samesite": "None",  # Required for cross-domain requests
+                "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
                 "path": "/"
             }
             response.set_cookie(
@@ -174,8 +174,8 @@ class VerifyTwoFactorView(APIView):
             cookie_settings = {
                 "httponly": True,
                 "secure": True,
-                "samesite": "None",  #'None' if using HTTPS
-                "domain": None,  # This will use the current domain
+                "samesite": "None",  # Required for cross-domain requests
+                "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
                 "path": "/"
             }
             response.set_cookie(
@@ -371,8 +371,8 @@ class Login42API(APIView):
             cookie_settings = {
                 "httponly": True,
                 "secure": True,
-                "samesite": "None",  # Use 'None' if using HTTPS
-                "domain": None,  # This will use the current domain
+                "samesite": "None",  # Required for cross-domain requests
+                "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
                 "path": "/"
             }
             response.set_cookie(
@@ -438,8 +438,8 @@ class RefreshTokenView(APIView):
             cookie_settings = {
                 "httponly": True,
                 "secure": True,
-                "samesite": "None",  # Use 'None' if using HTTPS
-                "domain": None,  # This will use the current domain
+                "samesite": "None",  # Required for cross-domain requests
+                "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
                 "path": "/"
             }
             response.set_cookie(
