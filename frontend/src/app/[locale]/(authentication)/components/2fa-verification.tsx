@@ -40,7 +40,7 @@ const TwoFactorVerification = ({ userId, setShowTwoFactor }: TwoFactorVerificati
 
   const verify2FACode = async (code: string) => {
     try {
-      const response = await fetcher.post("/api/auth/verify-2fa", {
+      const response = await fetcher.post("/auth/verify-2fa", {
         userId,
         code
       });

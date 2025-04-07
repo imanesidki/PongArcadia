@@ -12,7 +12,7 @@ const AccountView: React.FC = () => {
   const { data: userData, isLoading, error } = useQuery({
     queryKey: ['userProfile'],
     queryFn: async () => {
-      const response = await fetcher.get('/api/users/profile/me/');
+      const response = await fetcher.get('/users/profile/me/');
       return response.data;
     }
   });

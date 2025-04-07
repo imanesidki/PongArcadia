@@ -1,10 +1,10 @@
 const endpoints = {
     users: "/users",
     searchUsers: "/users/search",
-    login: "/api/auth/sign_in",
-    signup: "/api/auth/sign_up",
+    login: "/auth/sign_in",
+    signup: "/auth/sign_up",
     logout: "/auth/logout",
-    fortytwo: "/api/auth/42",
+    fortytwo: "/auth/42",
     notifications: "/users/notifications/",
     unreadNotifications: "/users/notifications/unread/",
     markNotificationRead: "/users/notifications/mark-read/",

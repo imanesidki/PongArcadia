@@ -25,7 +25,7 @@ const OnlineGameSetup: React.FC<OnlineGameSetupProps> = ({ onStartGame, userName
     setStatus(t('creatingGame'));
     
     try {
-      const response = await axios.post('/api/games/create_game/', {
+      const response = await axios.post('/games/create_game/', {
         theme,
         difficulty
       });
@@ -51,7 +51,7 @@ const OnlineGameSetup: React.FC<OnlineGameSetupProps> = ({ onStartGame, userName
     setStatus(t('findingMatch'));
     
     try {
-      const response = await axios.get(`/api/games/find_match/?theme=${theme}&difficulty=${difficulty}`);
+      const response = await axios.get(`/games/find_match/?theme=${theme}&difficulty=${difficulty}`);
       
       if (response.data && response.data.game_id) {
         if (response.data.status === 'joining') {
@@ -77,11 +77,11 @@ const OnlineGameSetup: React.FC<OnlineGameSetupProps> = ({ onStartGame, userName
     setStatus(t('joiningGame'));
     
     try {
-      const response = await axios.post(`/api/games/${gameId}/join_game/`);
+      const response = await axios.post(`/games/${gameId}/join_game/`);
       
       if (response.data && response.data.status === 'joined') {
         // Get game details to determine player names
-        const gameDetails = await axios.get(`/api/games/${gameId}/`);
+        const gameDetails = await axios.get(`/games/${gameId}/`);
         
         if (gameDetails.data) {
           const player1Name = gameDetails.data.player1_info?.username || t('player1');
@@ -107,7 +107,7 @@ const OnlineGameSetup: React.FC<OnlineGameSetupProps> = ({ onStartGame, userName
   const checkForOpponent = async (gameId: string) => {
     const checkInterval = setInterval(async () => {
       try {
-        const response = await axios.get(`/api/games/${gameId}/`);
+        const response = await axios.get(`/games/${gameId}/`);
         
         if (response.data && response.data.player2) {
           // Opponent found

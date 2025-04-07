@@ -18,7 +18,7 @@ export default function Friends() {
 
   const handleRemoveFriend = (username: string) => {
     friendMutation.mutate({
-      url: "/api/friends/remove-friend/",
+      url: "/friends/remove-friend/",
       username: username,
     });
   };

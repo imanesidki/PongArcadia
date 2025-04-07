@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query"
 export function UseSent(){
     const getSent = async () => {
         try{
-            const response = await fetcher.get<Friend[]>('/api/friends/requests/')
+            const response = await fetcher.get<Friend[]>('/friends/requests/')
             return response.data
         }
         catch(error){

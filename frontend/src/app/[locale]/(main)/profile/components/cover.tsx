@@ -35,7 +35,7 @@ export const useFriendshipStatus = (username: string | undefined) => {
       if (!username) return null;
       try {
         const resp = await fetcher.get<Friend>(
-          `/api/friends/status?username=${username}`
+          `/friends/status?username=${username}`
         );
         return resp.data;
       } catch (error) {
@@ -61,42 +61,42 @@ export default function Cover(props: { user: User; isOwner: boolean }) {
 
   const handleAddFriend = () => {
     friendMutation.mutate({
-      url: "/api/friends/send-request/",
+      url: "/friends/send-request/",
       username: user.username,
     });
   };
 
   const handleRemoveFriend = () => {
     friendMutation.mutate({
-      url: "/api/friends/remove-friend/",
+      url: "/friends/remove-friend/",
       username: user.username,
     });
   };
 
   const handleCancelRequest = () => {
     friendMutation.mutate({
-      url: "/api/friends/cancel-request/",
+      url: "/friends/cancel-request/",
       username: user.username,
     });
   };
 
   const handleBlockUser = () => {
     friendMutation.mutate({
-      url: "/api/friends/block/",
+      url: "/friends/block/",
       username: user.username,
     });
   };
 
   const handleUnBlockUser = () => {
     friendMutation.mutate({
-      url: "/api/friends/unblock/",
+      url: "/friends/unblock/",
       username: user.username,
     });
   };
 
   const handleAcceptRequest = () => {
     friendMutation.mutate({
-      url: "/api/friends/confirm-request/",
+      url: "/friends/confirm-request/",
       username: user.username,
     });
   };

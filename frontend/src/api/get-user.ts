@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 export function UseUser() {
   const getUser = async () => {
     try {
-      const response = await fetcher.get<User>("/api/users/profile/me");
+      const response = await fetcher.get<User>("/users/profile/me");
       return response.data;
     } catch (error) {
       return null;
@@ -24,7 +24,7 @@ export function UseOtherUser(username: string) {
   const getUser = async () => {
     try {
       const response = await fetcher.get<User>(
-        `/api/users/profile/${username}`
+        `/users/profile/${username}`
       );
       return response.data;
     } catch (error) {
@@ -44,7 +44,7 @@ export function useSearchUsers(query: string) {
     
     try {
       const response = await fetcher.get<User[]>(
-        `/api/users/search/${query}`
+        `/users/search/${query}`
       );
       return response.data;
     } catch (error) {

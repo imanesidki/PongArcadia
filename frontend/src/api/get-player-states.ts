@@ -10,7 +10,7 @@ export function UseStates(playerId: number | undefined) {
       if (!playerId)
         throw new Error("User not authenticated");
       const response = await fetcher.get<PlayerStatistics>(
-        `/api/pong_game/profile/${playerId}/`
+        `/pong_game/profile/${playerId}/`
       );
       if (!response.data) {
         throw new Error("No data received");

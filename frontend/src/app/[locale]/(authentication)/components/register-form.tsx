@@ -54,7 +54,7 @@ export const RegisterForm = ({ setLogin }: LoginFormProps) => {
 
   const registerUser = async (userData: FormDataRegister) => {
     try {
-      const response = await fetcher.post("/api/auth/sign_up", userData);
+      const response = await fetcher.post("/auth/sign_up", userData);
       return response.data;
     } catch (error: any) {
       const errorData = error.response?.data as RegisterError;

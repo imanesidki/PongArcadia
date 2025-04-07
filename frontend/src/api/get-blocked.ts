@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query"
 export function UseBlocked(){
     const getBlocked = async () => {
         try{
-            const response = await fetcher.get<Friend[]>('/api/friends/blocked/')
+            const response = await fetcher.get<Friend[]>('/friends/blocked/')
             return response.data
         }
         catch(error){

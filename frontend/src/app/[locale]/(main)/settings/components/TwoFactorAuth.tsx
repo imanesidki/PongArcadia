@@ -26,7 +26,7 @@ const TwoFactorAuth: React.FC<TwoFactorAuthProps> = ({ is2FAEnabled, toggle2FA }
 
     const enable2FAMutation = useMutation({
         mutationFn: async () => {
-            const response = await fetcher.post('/api/auth/enable-2fa');
+            const response = await fetcher.post('/auth/enable-2fa');
             return response.data;
         },
         onSuccess: (data) => {
@@ -49,7 +49,7 @@ const TwoFactorAuth: React.FC<TwoFactorAuthProps> = ({ is2FAEnabled, toggle2FA }
 
     const disable2FAMutation = useMutation({
         mutationFn: async () => {
-            const response = await fetcher.post('/api/auth/disable-2fa');
+            const response = await fetcher.post('/auth/disable-2fa');
             return response.data;
         },
         onSuccess: (data) => {

@@ -17,7 +17,7 @@ const QRCodeBlock: React.FC<QRCodeBlockProps> = ({ onConfirm2FA, qrCodeData, sec
 
     const verifyCodeMutation = useMutation({
         mutationFn: async () => {
-            const response = await fetcher.post('/api/auth/verify-2fa', { code });
+            const response = await fetcher.post('/auth/verify-2fa', { code });
             return response.data;
         },
         onSuccess: (data) => {

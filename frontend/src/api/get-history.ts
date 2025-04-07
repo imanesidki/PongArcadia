@@ -10,7 +10,7 @@ export function UseHistory(playerId: number) {
       if (!playerId)
         throw new Error("User not authenticated");
       const response = await fetcher.get<MatchResult[]>(
-        `/api/pong_game/games/history/${playerId}/`
+        `/pong_game/games/history/${playerId}/`
       );
       if (!response.data) {
         throw new Error("No data received");

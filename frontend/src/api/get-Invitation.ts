@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query"
 export function UseInvitation(){
     const getInvitation = async () => {
         try{
-            const response = await fetcher.get<Friend[]>('/api/friends/invitations')
+            const response = await fetcher.get<Friend[]>('/friends/invitations')
             return response.data
         }
         catch(error){
