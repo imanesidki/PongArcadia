@@ -98,6 +98,7 @@ def upload_image(request):
     API_ENDPOINT = "https://freeimage.host/api/1/upload"
 
     try:
+        image.seek(0)
         image_data = base64.b64encode(image.read()).decode("utf-8")
 
         payload = {
@@ -107,19 +108,30 @@ def upload_image(request):
             "format": "json"
         }
 
+        print("Making request to freeimage.host...")
         response = requests.post(API_ENDPOINT, data=payload)
+        print(f"Response status code: {response.status_code}")
+        print(f"Response content: {response.text}")
+        
         response.raise_for_status()
-        image_url = response.json()["image"]["image"]["url"]
+        response_data = response.json()
+        if "error" in response_data:
+            return Response({"message": f"API Error: {response_data['error']['message']}"}, 
+                          status=status.HTTP_400_BAD_REQUEST)
+            
+        image_url = response_data["image"]["image"]["url"]
         return Response({"url": image_url}, status=status.HTTP_201_CREATED)
 
     except requests.exceptions.RequestException as e:
+        print(f"Request failed: {str(e)}")
         return Response(
-            {"message": "Error uploading image to external service: " + str(e)},
+            {"message": f"Error uploading image to external service: {str(e)}"},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
     except Exception as e:
+        print(f"General error: {str(e)}")
         return Response(
-            {"message": "Error processing image: " + str(e)},
+            {"message": f"Error processing image: {str(e)}"},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
 
