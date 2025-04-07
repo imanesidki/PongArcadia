@@ -73,9 +73,9 @@ class login_view(APIView):
             response = Response()
 
             cookie_settings = {
-                "httponly": False,
-                "secure": False,
-                "samesite": "Lax",  #'None' if using HTTPS
+                "httponly": True,
+                "secure": True,
+                "samesite": "None",  #'None' if using HTTPS
                 "domain": None,  # This will use the current domain
                 "path": "/"
             }
@@ -172,9 +172,9 @@ class VerifyTwoFactorView(APIView):
             response = Response()
 
             cookie_settings = {
-                "httponly": False,
-                "secure": False,
-                "samesite": "Lax",  #'None' if using HTTPS
+                "httponly": True,
+                "secure": True,
+                "samesite": "None",  #'None' if using HTTPS
                 "domain": None,  # This will use the current domain
                 "path": "/"
             }
@@ -369,9 +369,9 @@ class Login42API(APIView):
             url = os.getenv('FRONTEND_URL') + '/profile/me'
             response = redirect(url)
             cookie_settings = {
-                "httponly": False,
-                "secure": False,
-                "samesite": "Lax",  # Use 'None' if using HTTPS
+                "httponly": True,
+                "secure": True,
+                "samesite": "None",  # Use 'None' if using HTTPS
                 "domain": None,  # This will use the current domain
                 "path": "/"
             }
@@ -436,9 +436,9 @@ class RefreshTokenView(APIView):
 
             response = Response()
             cookie_settings = {
-                "httponly": False,
-                "secure": False,
-                "samesite": "Lax",  # Use 'None' if using HTTPS
+                "httponly": True,
+                "secure": True,
+                "samesite": "None",  # Use 'None' if using HTTPS
                 "domain": None,  # This will use the current domain
                 "path": "/"
             }
