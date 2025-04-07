@@ -73,7 +73,7 @@ class login_view(APIView):
             response = Response()
 
             cookie_settings = {
-                "httponly": True,
+                "httponly": False,
                 "secure": True,
                 "samesite": "None",  # Required for cross-domain requests
                 "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
@@ -172,7 +172,7 @@ class VerifyTwoFactorView(APIView):
             response = Response()
 
             cookie_settings = {
-                "httponly": True,
+                "httponly": False,
                 "secure": True,
                 "samesite": "None",  # Required for cross-domain requests
                 "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
@@ -369,7 +369,7 @@ class Login42API(APIView):
             url = os.getenv('FRONTEND_URL') + '/profile/me'
             response = redirect(url)
             cookie_settings = {
-                "httponly": True,
+                "httponly": False,
                 "secure": True,
                 "samesite": "None",  # Required for cross-domain requests
                 "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
@@ -436,7 +436,7 @@ class RefreshTokenView(APIView):
 
             response = Response()
             cookie_settings = {
-                "httponly": True,
+                "httponly": False,
                 "secure": True,
                 "samesite": "None",  # Required for cross-domain requests
                 "domain": ".pongarcadia.me",  # Root domain with leading dot to include all subdomains
