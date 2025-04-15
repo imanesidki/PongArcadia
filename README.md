@@ -1,68 +1,44 @@
-# ft_transcendence
+# PongArcadia
 
-## Web Application Functions
+## Web Application Features
 
-- **Live Pong Game**: Play a classic Pong game directly on the website.
-- **Remote Players**: Compete against remote opponents via the internet.
-- **Tournament System**: Organize and display tournament matchups and player order.
 - **User Registration & Management**: Register, log in, update information, and manage profiles.
+- **Live Chat**: Direct messaging between users using websockets, including game invites and blocking options.
+- **Live Pong Game**: Play a classic Pong game directly on the website.
+- **Remote Players**: Compete against remote opponents.
+- **Tournament System**: Organize and display tournament matchups and player order.
 - **Matchmaking System**: Automatically pair players for matches and announce upcoming games.
 - **Game Customization**: Customize the Pong game experience with various options.
-- **Live Chat**: Direct messaging between users, including game invites and blocking options.
 - **Two-Factor Authentication (2FA)**: Enhance security with an additional verification layer.
-- **Multi-Language Support**: Access the application in multiple languages.
-- **Responsive Design**: Adapt to various device screens, including desktops, tablets, and smartphones.
+- **Multi-Language Support**: Multiple language support (French, English, Spanish, Italian).
+- **Notifications System**: Receive notifications on friends invite, blocked, unblocked or game invite.
 - **Cross-Browser Compatibility**: Consistent experience across different web browsers.
-- **Server-Side Pong**: Manage the core Pong game server-side for smooth gameplay and API access.
-
-## Minimal Technical Requirements
-
 - **Single-Page Application**: Functions as a single-page application with browser navigation.
 - **Browser Compatibility**: Compatible with the latest stable version of Google Chrome.
-- **No Errors/Warnings**: No unhandled errors or warnings during browsing.
-- **Single Command Launch**: Everything launched with a single command:  `docker-compose up --build`.
+</br>
 
-## To Do
-
-
-**Module Type: Major Modules**
-
-- **Backend**
-- **User Management**
-- **Remote Authentication**
-- **Remote Players**
-- **Live Chat**
-- **Two-Factor Authentication (2FA) & JWT**
-- **Server-Side Pong**
-
-**To Consider (Major)**
-
-- **AI Opponent**
-- **ELK (Elasticsearch, Logstash, Kibana)**
-
-**Module Type: Minor Modules**
-
-- **Database**
-- **Game Customization Options**
-- **Multiple Language Support**
-- **Expanding Browser Compatibility**
-- **Responsive Design**
-- **Server-Side Rendering (SSR)**
-
-**To Consider (Minor)**
-
-- **Monitoring System**
-- **User and Game Stats Dashboard**
-
-
-## To keep in mind:
-
-| **Consideration**                         | **Description**                                                                                                 |
+| **Other Functionalities**                         | **Description**                                                                                                 |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| **User Authentication & Authorization**   | Users must be signed in for access to protected routes. Integration with OAuth 2.0 and secure session management will be used. |
-| **Server-Side Integration**               | Server-Side Rendering (SSR) will be implemented for performance and SEO. The server-side Pong game will synchronize game states between server and client. |
-| **Data Consistency**                      | PostgreSQL will be used to ensure data consistency. Implement data validation and sanitization to prevent SQL injections and XSS. |
-| **Responsiveness & Compatibility**        | The application must be responsive across devices (desktops, tablets, smartphones) and compatible with multiple browsers. |
-| **User Experience**                       | Ensure a smooth and engaging user experience with optimized loading times and performance. |
-| **Security**                             | Implement Two-Factor Authentication (2FA), use HTTPS for all connections, and utilize JWT for secure session management. |
-| **Form and user input validation**        | Implement validation for forms and any user input, either on the client-side within the base page or on the server-side if a backend is employed. |
+| **User Authentication & Authorization**   | Users must be signed in for access to protected routes. Integration with OAuth 2.0 and secure session management is used. |
+| **Server-Side Integration**               | Server-Side Rendering (SSR) is implemented for performance and SEO. The server-side Pong game synchronizes game states between server and client. |
+| **Data Consistency**                      | PostgreSQL is used to ensure data consistency. Implement data validation and sanitization to prevent SQL injections and XSS. |
+| **Compatibility**                         | The application is compatible with multiple browsers. |
+| **User Experience**                       | Smooth and engaging user experience with optimized loading times and performance. |
+| **Security**                              | Implemented Two-Factor Authentication (2FA), used HTTPS for all connections, and utilized JWT for secure session management. |
+| **Form and user input validation**        | Implemented validation for forms and any user input on the server-side. |
+
+
+## Tech Stack
+
+- Frontend: NextJS, TypeScript, Tailwind CSS
+- Backend: Django Rest Framework (Python)
+- Database: Postgresql
+- Containerization: Docker
+
+
+## How to run the project
+Docker is used to simplify the process of running all the services of the application (frontend, backend, database, redis, nginx). To run the project on:
+### Windows
+Run Docker and execute the following command: `docker-compose up -d`.
+### MacOS & Linux
+It's much easier to run the project on these operating systems, a Makefile exists that automates most of the tasks. So, simply run `make`, then you're done.
