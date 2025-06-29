@@ -1,4 +1,4 @@
-# PongArcadia
+<img width="1510" alt="Screenshot 2025-06-29 at 23 27 38" src="https://github.com/user-attachments/assets/68d9f877-768b-4626-9418-10249a0387ed" /># PongArcadia
 
 ## Web Application Features
 
@@ -42,3 +42,6 @@ Docker is used to simplify the process of running all the services of the applic
 Run Docker and execute the following command: `docker-compose up -d`.
 ### MacOS & Linux
 It's much easier to run the project on these operating systems, a Makefile exists that automates most of the tasks. So, simply run `make`, then you're done.
+<img width="1510" alt="Screenshot 2025-06-29 at 23 27 38" src="https://github.com/user-attachments/assets/df4436f3-20f0-4fd1-a8a9-c06fa55ba425" />
+
+
