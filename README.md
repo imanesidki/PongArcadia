@@ -1,4 +1,4 @@
-<img width="1510" alt="Screenshot 2025-06-29 at 23 27 38" src="https://github.com/user-attachments/assets/68d9f877-768b-4626-9418-10249a0387ed" /># PongArcadia
+# PongArcadia
 
 ## Web Application Features
 
